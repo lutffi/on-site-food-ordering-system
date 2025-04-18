@@ -1,0 +1,166 @@
+<html>
+
+<head>
+    <title>
+        Interactive Restaurant
+    </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    <!-- In your HTML head -->
+<script src="script.js" defer></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-1/3 bg-white p-4">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold">
+                    Waroeng Makan Kartika Sari Cab. Surabaya
+                </h2>
+                <img alt="Interactive Logo" class="h-10" height="40"
+                    src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-5iVGglQRusccGzGwdEs0O5G2.png?st=2025-04-16T14%3A58%3A31Z&amp;se=2025-04-16T16%3A58%3A31Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T15%3A58%3A31Z&amp;ske=2025-04-17T15%3A58%3A31Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=sNHq29bjaa8Dt5HmzycU4nHjWDObCR8UT1p78oL3Bxk%3D"
+                    width="100" />
+            </div>
+
+            <div class="mb-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <i class="fas fa-shopping-cart text-2xl text-green-500">
+                        </i>
+                        <span class="ml-2">
+                            3
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <h3 class="font-semibold mb-2">Pesanan Anda:</h3>
+            <ul id="pesananList" class="text-sm text-gray-700"></ul>
+            <p class="mt-2 font-semibold">Total: Rp<span id="totalHarga">0</span></p>
+            <button onclick="kirimPesanan()"
+                class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">Kirim Pesanan</button>
+        </div>
+        <!-- Main Content -->
+        <div class="w-2/3 p-4">
+            <div class="flex items-start justify-between mb-4">
+                <p class="text-3xl font-semibold">Meja <span id="nomorMeja">?</span></p>
+                <div>
+                    <p class="text-gray-600 font-semibold">Thursday, 11-10-2018</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded shadow">
+                    <img alt="Gado-Gado Surabaya" class="w-full h-32 object-cover rounded mb-2"
+                        src="images/gado-gado.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Gado-Gado Surabaya</p>
+                        <button onclick="tambah('Gado-Gado Surabaya', 13000)"
+                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 13.000</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <img alt="Nasi Goreng Spesial" class="w-full h-32 object-cover rounded mb-2" height="100"
+                        src="placeholder"
+                        width="150" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Nasi Goreng Spesial</p>
+                        <button onclick="tambah('Nasi Goreng Spesial', 13000)"
+                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">tambah</button>
+                    </div>
+                    <p class="text-orange-500">
+                        Rp 13.000
+                        <span class="line-through text-gray-500">
+                            Rp 15.000
+                        </span>
+                    </p>
+
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <img alt="Bakmi Goreng Spesial" class="w-full h-32 object-cover rounded mb-2" height="100"
+                        src="images/images.jpeg"
+                        width="150" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Bakmi Goreng Spesial</p>
+                        <button onclick="tambah('Bakmi Goreng Spesial', 13000)"
+                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">tambah</button>
+                    </div>
+                    <p class="text-orange-500">
+                        Rp 13.000
+                        <span class="line-through text-gray-500">
+                            Rp 15.000
+                        </span>
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <img alt="Rawon Yahut Nice" class="w-full h-32 object-cover rounded mb-2" height="100"
+                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-Rh75LnEToEtmqZLlxPMCjXq9.png?st=2025-04-16T14%3A58%3A37Z&amp;se=2025-04-16T16%3A58%3A37Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T05%3A19%3A20Z&amp;ske=2025-04-17T05%3A19%3A20Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=fE86BivfwPnToSNiA3w/twcPzz23mb0HtHA6jXalfFs%3D"
+                        width="150" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Rawon Yahut Nice</p>
+                        <button onclick="tambah('Rawon Yahut Nice', 12000)"
+                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">Tambah</button>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <img alt="Pecel Lele Lamongan" class="w-full h-32 object-cover rounded mb-2" height="100"
+                        src="images/esteh.jpeg"
+                        width="150" />
+                    <p>
+                        Pecel Lele Lamongan
+                    </p>
+                    <p class="text-orange-500">
+                        Rp 13.000
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <img alt="Rujak Cingur Surabaya" class="w-full h-32 object-cover rounded mb-2" height="100"
+                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-qIk9PJw9z83h6AB3bW6VM0ZY.png?st=2025-04-16T14%3A58%3A37Z&amp;se=2025-04-16T16%3A58%3A37Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T05%3A19%3A19Z&amp;ske=2025-04-17T05%3A19%3A19Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=8L8OoCZAWAiiLiPgjs3uSLpj3MB6omJpMhRJTDz8D88%3D"
+                        width="150" />
+                    <p>
+                        Rujak Cingur Surabaya
+                    </p>
+                    <p class="text-orange-500">
+                        Rp 13.000
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <img alt="Soto Asli Lamongan" class="w-full h-32 object-cover rounded mb-2" height="100"
+                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-Ot7zlwrzu5MN1dFpfUMglGUF.png?st=2025-04-16T14%3A58%3A36Z&amp;se=2025-04-16T16%3A58%3A36Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T05%3A29%3A09Z&amp;ske=2025-04-17T05%3A29%3A09Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=X88ToLUmfmJZyPf4r%2BrKdku8LiON0IPu4XWnl7pDVAk%3D"
+                        width="150" />
+                    <p>
+                        Soto Asli Lamongan
+                    </p>
+                    <p class="text-orange-500">
+                        Rp 13.000
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <img alt="Tahu Campur" class="w-full h-32 object-cover rounded mb-2" height="100"
+                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-3x1ZdeYb31CSRfOvVRFcKfC5.png?st=2025-04-16T14%3A58%3A44Z&amp;se=2025-04-16T16%3A58%3A44Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T02%3A52%3A04Z&amp;ske=2025-04-17T02%3A52%3A04Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=606ihHaV7b2yZD3locHBXPElyEzkm1oPvebmed1sbE4%3D"
+                        width="150" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Tahu Campur</p>
+                        <button
+                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">pesan</button>
+                    </div>
+                    <p class="text-orange-500">
+                        Rp 13.000
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js" ></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+  }
+  header {
+    background-color: #d84315;
+    color: white;
+    padding: 10px 20px;
+  }
+  .customer-tabs button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+  }
+  .customer-tabs button.active {
+    background-color: #d84315;
+    color: white;
+  }
+  .btn-confirm { background-color: #4caf50; color: white; }
+  .btn-pay { background-color: #2196f3; color: white; }
+  .btn-print { background-color: #ff9800; color: white; }
+  .order-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  .order-section table, .order-section th, .order-section td {
+    border: 1px solid #ccc;
+  }
+  .order-section th, .order-section td {
+    padding: 10px;
+    text-align: center;
+  }
+  .actions button {
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .actions button:hover {
+    opacity: 0.9;
+  }
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+    .print-section, .print-section * {
+      visibility: visible;
+    }
+    .print-section {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }

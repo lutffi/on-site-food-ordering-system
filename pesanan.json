@@ -1,0 +1,70 @@
+[
+    {
+        "meja": "5",
+        "pesanan": [
+            {
+                "nama": "Gado-Gado Surabaya",
+                "harga": 13000
+            },
+            {
+                "nama": "Nasi Goreng Spesial",
+                "harga": 13000
+            }
+        ],
+        "total": 26000,
+        "waktu": "2025-04-18 03:17:54",
+        "status": "Menunggu"
+    },
+    {
+        "meja": "6",
+        "pesanan": [
+            {
+                "nama": "Gado-Gado Surabaya",
+                "harga": 13000
+            },
+            {
+                "nama": "Nasi Goreng Spesial",
+                "harga": 13000
+            }
+        ],
+        "total": 26000,
+        "waktu": "2025-04-18 03:18:50",
+        "status": "Menunggu"
+    },
+    {
+        "meja": "4",
+        "pesanan": [
+            {
+                "nama": "Gado-Gado Surabaya",
+                "harga": 13000
+            },
+            {
+                "nama": "Nasi Goreng Spesial",
+                "harga": 13000
+            },
+            {
+                "nama": "Bakmi Goreng Spesial",
+                "harga": 13000
+            }
+        ],
+        "total": 39000,
+        "waktu": "2025-04-18 03:33:10",
+        "status": "Menunggu"
+    },
+    {
+        "meja": "7",
+        "pesanan": [
+            {
+                "nama": "Gado-Gado Surabaya",
+                "harga": 13000
+            },
+            {
+                "nama": "Nasi Goreng Spesial",
+                "harga": 13000
+            }
+        ],
+        "total": 26000,
+        "waktu": "2025-04-18 11:07:57",
+        "status": "Menunggu"
+    }
+]
