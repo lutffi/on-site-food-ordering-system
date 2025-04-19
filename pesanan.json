@@ -66,5 +66,85 @@
         "total": 26000,
         "waktu": "2025-04-18 11:07:57",
         "status": "Menunggu"
+    },
+    {
+        "meja": "?",
+        "pesanan": [
+            {
+                "nama": "Gado-Gado Surabaya",
+                "harga": 13000,
+                "jumlah": 1
+            },
+            {
+                "nama": "Nasi Goreng Spesial",
+                "harga": 13000,
+                "jumlah": 1
+            }
+        ],
+        "total": 0,
+        "waktu": "2025-04-19 07:41:11",
+        "status": "Menunggu"
+    },
+    {
+        "meja": "?",
+        "pesanan": [
+            {
+                "nama": "Nasi Goreng Spesial",
+                "harga": 13000,
+                "jumlah": 1
+            }
+        ],
+        "total": 0,
+        "waktu": "2025-04-19 07:41:28",
+        "status": "Menunggu"
+    },
+    {
+        "meja": "?",
+        "pesanan": [
+            {
+                "nama": "Gado-Gado Surabaya",
+                "harga": 13000,
+                "jumlah": 1
+            },
+            {
+                "nama": "Nasi Goreng Spesial",
+                "harga": 13000,
+                "jumlah": 1
+            },
+            {
+                "nama": "Bakmi Goreng Spesial",
+                "harga": 13000,
+                "jumlah": 1
+            }
+        ],
+        "total": 0,
+        "waktu": "2025-04-19 07:45:50",
+        "status": "Menunggu"
+    },
+    {
+        "meja": "?",
+        "pesanan": [
+            {
+                "nama": "Rawon Yahut Nice",
+                "harga": 12000,
+                "jumlah": 4
+            }
+        ],
+        "total": 0,
+        "waktu": "2025-04-19 07:46:07",
+        "status": "Menunggu"
+    },
+    {
+        "meja": "?",
+        "pesanan": [
+            {
+                "nama": "Gado-Gado Surabaya",
+                "harga": 13000,
+                "jumlah": 3
+            }
+        ],
+        "total": 0,
+        "waktu": "2025-04-19 07:46:40",
+        "status": "Menunggu"
     }
 ]

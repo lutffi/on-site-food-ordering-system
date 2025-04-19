@@ -12,6 +12,48 @@
         body {
             font-family: 'Roboto', sans-serif;
         }
+          /* Mobile styles */
+          @media (max-width: 768px) {
+            .desktop-sidebar {
+                display: none;
+            }
+            
+            .mobile-cart {
+                display: flex;
+            }
+            
+            .main-content {
+                width: 100% !important;
+            }
+        }
+        
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .mobile-cart {
+                display: none;
+            }
+        }
+        
+        /* Mobile cart modal */
+        .cart-modal {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-out;
+            display: none;
+        }
+        
+        .cart-modal.open {
+            transform: translateY(0);
+        }
     </style>
     <!-- In your HTML head -->
 <script src="script.js" defer></script>
@@ -19,31 +61,27 @@
 
 <body class="bg-gray-100">
     <div class="flex">
-        <!-- Sidebar -->
-        <div class="w-1/3 bg-white p-4">
+        <!-- Desktop Sidebar -->
+        <div class="desktop-sidebar w-1/3 bg-white p-4 shadow-md">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-lg font-bold">
                     Waroeng Makan Kartika Sari Cab. Surabaya
                 </h2>
                 <img alt="Interactive Logo" class="h-10" height="40"
-                    src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-5iVGglQRusccGzGwdEs0O5G2.png?st=2025-04-16T14%3A58%3A31Z&amp;se=2025-04-16T16%3A58%3A31Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T15%3A58%3A31Z&amp;ske=2025-04-17T15%3A58%3A31Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=sNHq29bjaa8Dt5HmzycU4nHjWDObCR8UT1p78oL3Bxk%3D"
+                    src="/api/placeholder/100/40"
                     width="100" />
             </div>
 
             <div class="mb-4">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
-                        <i class="fas fa-shopping-cart text-2xl text-green-500">
-                        </i>
-                        <span class="ml-2">
-                            3
-                        </span>
+                        <i class="fas fa-shopping-cart text-2xl text-green-500"></i>
+                        <span id="cartCountDesktop" class="ml-2 bg-red-500 text-white rounded-full px-2 py-0.5 text-xs">0</span>
                     </div>
-
                 </div>
             </div>
             <h3 class="font-semibold mb-2">Pesanan Anda:</h3>
-            <ul id="pesananList" class="text-sm text-gray-700"></ul>
+            <ul id="pesananList" class="text-sm text-gray-700 max-h-64 overflow-y-auto"></ul>
             <p class="mt-2 font-semibold">Total: Rp<span id="totalHarga">0</span></p>
             <button onclick="kirimPesanan()"
                 class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">Kirim Pesanan</button>
@@ -51,7 +89,7 @@
         <!-- Main Content -->
         <div class="w-2/3 p-4">
             <div class="flex items-start justify-between mb-4">
-                <p class="text-3xl font-semibold">Meja <span id="nomorMeja">?</span></p>
+                <p class="text-2xl font-semibold">Meja <span id="nomorMeja">?</span></p>
                 <div>
                     <p class="text-gray-600 font-semibold">Thursday, 11-10-2018</p>
                 </div>
@@ -159,8 +197,29 @@
                 </div>
             </div>
         </div>
+          <!-- Mobile Cart Button -->
+    <div class="mobile-cart fixed bottom-6 right-6 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg z-50" 
+    onclick="toggleCartModal()">
+   <i class="fas fa-shopping-cart text-white text-2xl"></i>
+   <span id="cartCountMobile" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">0</span>
+</div>
+
+<!-- Mobile Cart Modal -->
+<div id="cartModal" class="cart-modal">
+   <div class="flex justify-between items-center mb-4">
+       <h3 class="text-lg font-bold">Waroeng Makan Kartika Sari</h3>
+       <button onclick="toggleCartModal()" class="text-gray-500">
+           <i class="fas fa-times"></i>
+       </button>
+   </div>
+   
+   <h4 class="font-semibold mb-2">Pesanan Anda:</h4>
+   <ul id="pesananListMobile" class="text-sm text-gray-700 max-h-64 overflow-y-auto"></ul>
+   <p class="mt-2 font-semibold">Total: Rp<span id="totalHargaMobile">0</span></p>
+   <button onclick="kirimPesanan()"
+       class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">Kirim Pesanan</button>
+</div>
     </div>
     </div>
-    <script src="script.js" ></script>
 </body>
 </html>
