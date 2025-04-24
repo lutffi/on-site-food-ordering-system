@@ -1,13 +1,15 @@
 <?php
 session_start();
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-$valid_user = 'kasir';
-$valid_pass = '1234';
-
-if ($_POST['username'] === $valid_user && $_POST['password'] === $valid_pass) {
-    $_SESSION['login'] = true;
-    header("Location: dashboard_kasir.php");
+if ($username != 'kasir' || $password != '1234') {
+    $_SESSION['error'] = 'Username atau password salah!';
+    header('Location: login.php');
     exit;
-} else {
-    echo "Login gagal!";
 }
+
+$_SESSION['user'] = $username;
+header('Location: dashboard_kasir.php');
+exit;
+?>

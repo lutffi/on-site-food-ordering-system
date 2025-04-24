@@ -2,7 +2,7 @@
 
 <head>
     <title>
-        Interactive Restaurant
+        Waroeng Makan Kartika Sari Cab. Surabaya
     </title>
     <script src="https://cdn.tailwindcss.com">
     </script>
@@ -67,9 +67,10 @@
                 <h2 class="text-lg font-bold">
                     Waroeng Makan Kartika Sari Cab. Surabaya
                 </h2>
-                <img alt="Interactive Logo" class="h-10" height="40"
-                    src="/api/placeholder/100/40"
-                    width="100" />
+                <img alt="Logo warung" 
+     class="h-16 w-16 object-cover rounded-full" 
+     src="images/Logo.png" />
+
             </div>
 
             <div class="mb-4">
@@ -84,127 +85,180 @@
             <ul id="pesananList" class="text-sm text-gray-700 max-h-64 overflow-y-auto"></ul>
             <p class="mt-2 font-semibold">Total: Rp<span id="totalHarga">0</span></p>
             <button onclick="kirimPesanan()"
-                class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">Kirim Pesanan</button>
+               class="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded w-full">Kirim Pesanan</button>
+
         </div>
         <!-- Main Content -->
         <div class="w-2/3 p-4">
             <div class="flex items-start justify-between mb-4">
                 <p class="text-2xl font-semibold">Meja <span id="nomorMeja">?</span></p>
-                <div>
-                    <p class="text-gray-600 font-semibold">Thursday, 11-10-2018</p>
-                </div>
+                <p id="tanggal-otomatis" class="text-gray-600 font-semibold"></p>
+                <p id="jam-otomatis" class="text-gray-600 text-sm font-bold"></p>
+
+
             </div>
 
             <div class="grid grid-cols-3 gap-4">
-                <div class="bg-white p-4 rounded shadow">
-                    <img alt="Gado-Gado Surabaya" class="w-full h-32 object-cover rounded mb-2"
-                        src="images/gado-gado.jpeg" />
+                <!-- Makanan -->
+                <div class="col-span-3 text-center font-semibold text-xl mb-4">Menu Makanan</div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Gado-Gado Surabaya" class="w-full h-32 object-cover rounded mb-2" src="images/gado-gado.jpeg" />
                     <div class="flex items-center justify-between">
                         <p class="font-semibold">Gado-Gado Surabaya</p>
                         <button onclick="tambah('Gado-Gado Surabaya', 13000)"
-                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">tambah</button>
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
                     </div>
                     <p class="text-orange-500">Rp 13.000</p>
                 </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <img alt="Nasi Goreng Spesial" class="w-full h-32 object-cover rounded mb-2" height="100"
-                        src="placeholder"
-                        width="150" />
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Sate Ayam" class="w-full h-32 object-cover rounded mb-2" src="images/sateayam.jpeg" />
                     <div class="flex items-center justify-between">
-                        <p class="font-semibold">Nasi Goreng Spesial</p>
-                        <button onclick="tambah('Nasi Goreng Spesial', 13000)"
-                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">tambah</button>
+                        <p class="font-semibold">Sate Ayam</p>
+                        <button onclick="tambah('Sate Ayam', 20000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
                     </div>
-                    <p class="text-orange-500">
-                        Rp 13.000
-                        <span class="line-through text-gray-500">
-                            Rp 15.000
-                        </span>
-                    </p>
-
+                    <p class="text-orange-500">Rp 20.000</p>
                 </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <img alt="Bakmi Goreng Spesial" class="w-full h-32 object-cover rounded mb-2" height="100"
-                        src="images/images.jpeg"
-                        width="150" />
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Nasi Uduk" class="w-full h-32 object-cover rounded mb-2" src="images/nasiuduk.jpeg" />
                     <div class="flex items-center justify-between">
-                        <p class="font-semibold">Bakmi Goreng Spesial</p>
-                        <button onclick="tambah('Bakmi Goreng Spesial', 13000)"
-                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">tambah</button>
+                        <p class="font-semibold">Nasi Uduk</p>
+                        <button onclick="tambah('Nasi Uduk', 18000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
                     </div>
-                    <p class="text-orange-500">
-                        Rp 13.000
-                        <span class="line-through text-gray-500">
-                            Rp 15.000
-                        </span>
-                    </p>
+                    <p class="text-orange-500">Rp 18.000</p>
                 </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <img alt="Rawon Yahut Nice" class="w-full h-32 object-cover rounded mb-2" height="100"
-                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-Rh75LnEToEtmqZLlxPMCjXq9.png?st=2025-04-16T14%3A58%3A37Z&amp;se=2025-04-16T16%3A58%3A37Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T05%3A19%3A20Z&amp;ske=2025-04-17T05%3A19%3A20Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=fE86BivfwPnToSNiA3w/twcPzz23mb0HtHA6jXalfFs%3D"
-                        width="150" />
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Mie Ayam" class="w-full h-32 object-cover rounded mb-2" src="images/bebekbakar.jpeg" />
                     <div class="flex items-center justify-between">
-                        <p class="font-semibold">Rawon Yahut Nice</p>
-                        <button onclick="tambah('Rawon Yahut Nice', 12000)"
-                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">Tambah</button>
+                        <p class="font-semibold">Bebek Bakar</p>
+                        <button onclick="tambah('Bebek Bakar', 25000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
                     </div>
+                    <p class="text-orange-500">Rp 25.000</p>
                 </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <img alt="Pecel Lele Lamongan" class="w-full h-32 object-cover rounded mb-2" height="100"
-                        src="images/esteh.jpeg"
-                        width="150" />
-                    <p>
-                        Pecel Lele Lamongan
-                    </p>
-                    <p class="text-orange-500">
-                        Rp 13.000
-                    </p>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <img alt="Rujak Cingur Surabaya" class="w-full h-32 object-cover rounded mb-2" height="100"
-                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-qIk9PJw9z83h6AB3bW6VM0ZY.png?st=2025-04-16T14%3A58%3A37Z&amp;se=2025-04-16T16%3A58%3A37Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T05%3A19%3A19Z&amp;ske=2025-04-17T05%3A19%3A19Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=8L8OoCZAWAiiLiPgjs3uSLpj3MB6omJpMhRJTDz8D88%3D"
-                        width="150" />
-                    <p>
-                        Rujak Cingur Surabaya
-                    </p>
-                    <p class="text-orange-500">
-                        Rp 13.000
-                    </p>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <img alt="Soto Asli Lamongan" class="w-full h-32 object-cover rounded mb-2" height="100"
-                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-Ot7zlwrzu5MN1dFpfUMglGUF.png?st=2025-04-16T14%3A58%3A36Z&amp;se=2025-04-16T16%3A58%3A36Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T05%3A29%3A09Z&amp;ske=2025-04-17T05%3A29%3A09Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=X88ToLUmfmJZyPf4r%2BrKdku8LiON0IPu4XWnl7pDVAk%3D"
-                        width="150" />
-                    <p>
-                        Soto Asli Lamongan
-                    </p>
-                    <p class="text-orange-500">
-                        Rp 13.000
-                    </p>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <img alt="Tahu Campur" class="w-full h-32 object-cover rounded mb-2" height="100"
-                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-3x1ZdeYb31CSRfOvVRFcKfC5.png?st=2025-04-16T14%3A58%3A44Z&amp;se=2025-04-16T16%3A58%3A44Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-04-16T02%3A52%3A04Z&amp;ske=2025-04-17T02%3A52%3A04Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=606ihHaV7b2yZD3locHBXPElyEzkm1oPvebmed1sbE4%3D"
-                        width="150" />
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Soto Betawi" class="w-full h-32 object-cover rounded mb-2" src="images/sotosemarang.jpeg" />
                     <div class="flex items-center justify-between">
-                        <p class="font-semibold">Tahu Campur</p>
-                        <button
-                            class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600">pesan</button>
+                        <p class="font-semibold">Soto Semarang</p>
+                        <button onclick="tambah('Soto Semarang', 25000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
                     </div>
-                    <p class="text-orange-500">
-                        Rp 13.000
-                    </p>
+                    <p class="text-orange-500">Rp 20.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Nasi Goreng" class="w-full h-32 object-cover rounded mb-2" src="images/nasgor.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Nasi Goreng Seafood</p>
+                        <button onclick="tambah('Nasi Goreng', 20000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 20.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Pecel Madiun" class="w-full h-32 object-cover rounded mb-2" src="images/ayambakar.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Ayam Bakar</p>
+                        <button onclick="tambah('Ayam Bakar', 22000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 22.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Bakso Malang" class="w-full h-32 object-cover rounded mb-2" src="images/ayamgeprek.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Ayam Geprek</p>
+                        <button onclick="tambah('Ayam Geprek', 13000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 13.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Nasi Padang" class="w-full h-32 object-cover rounded mb-2" src="images/ikannilabakar.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Ikan Nila Bakar</p>
+                        <button onclick="tambah('Nasi Padang', 25000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 25.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Tahu Tempe" class="w-full h-32 object-cover rounded mb-2" src="images/Sambaldadarkucai.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Sambal Dadar Kucai</p>
+                        <button onclick="tambah('Sambal Dadar Kucai', 15000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 15.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Gudeg Jogja" class="w-full h-32 object-cover rounded mb-2" src="images/gudeg.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Gudeg Jogja</p>
+                        <button onclick="tambah('Gudeg Jogja', 27000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 27.000</p>
+                </div>    
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Ayam Penyet" class="w-full h-32 object-cover rounded mb-2" src="images/Ayam Penyet.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Ayam Penyet</p>
+                        <button onclick="tambah('Ayam Penyet', 22000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 22.000</p>
+                </div>
+            
+                <!-- Minuman -->
+                <div class="col-span-3 text-center font-semibold text-xl mb-4 mt-6">Menu Minuman</div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Es Teh Manis" class="w-full h-32 object-cover rounded mb-2" src="images/esteh2.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Es Teh Manis</p>
+                        <button onclick="tambah('Es Teh Manis', 5000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 5.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Es Jeruk" class="w-full h-32 object-cover rounded mb-2" src="images/esjeruk.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Es Jeruk</p>
+                        <button onclick="tambah('Es Jeruk', 6000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 6.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Kopi Hitam" class="w-full h-32 object-cover rounded mb-2" src="images/kopihitam.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Kopi Hitam</p>
+                        <button onclick="tambah('Kopi Hitam', 8000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 8.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Air Mineral" class="w-full h-32 object-cover rounded mb-2" src="images/airmineral.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Air Mineral</p>
+                        <button onclick="tambah('Air Mineral', 3000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 3.000</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded shadow">
+                    <img alt="Jus Mangga" class="w-full h-32 object-cover rounded mb-2" src="images/jusjambu.jpeg" />
+                    <div class="flex items-center justify-between">
+                        <p class="font-semibold">Jus Jambu</p>
+                        <button onclick="tambah('Jus Jambu', 15000)"
+                            class="bg-green-600 text-white text-sm px-3 py-1 rounded hover:bg-green-700">Tambah</button>
+                    </div>
+                    <p class="text-orange-500">Rp 15.000</p>
                 </div>
             </div>
-        </div>
-          <!-- Mobile Cart Button -->
-    <div class="mobile-cart fixed bottom-6 right-6 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg z-50" 
-    onclick="toggleCartModal()">
-   <i class="fas fa-shopping-cart text-white text-2xl"></i>
-   <span id="cartCountMobile" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">0</span>
-</div>
 
-<!-- Mobile Cart Modal -->
 <div id="cartModal" class="cart-modal">
    <div class="flex justify-between items-center mb-4">
        <h3 class="text-lg font-bold">Waroeng Makan Kartika Sari</h3>
@@ -221,5 +275,22 @@
 </div>
     </div>
     </div>
+    <script>
+        function updateTanggalDanJam() {
+    const tanggal = new Date();
+    const opsiTanggal = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const tanggalFormatted = tanggal.toLocaleDateString('id-ID', opsiTanggal);
+    const jamFormatted = tanggal.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+    document.getElementById('tanggal-otomatis').textContent = tanggalFormatted;
+    document.getElementById('jam-otomatis').textContent = jamFormatted + ' WIB'; // Menambahkan "WIB" setelah jam
+    }
+        //fungsi setiap detik 
+        setInterval(updateTanggalDanJam, 1000);
+    
+        // Jalankan saat halaman pertama kali dibuka
+        updateTanggalDanJam();
+    </script>
+    
 </body>
 </html>

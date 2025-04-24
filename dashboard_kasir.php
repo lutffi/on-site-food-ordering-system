@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,6 +6,64 @@ if (!isset($_SESSION['login'])) {
   <title>Dashboard Kasir Waroeng Makan</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="stylesheet.css">
+  
+  <style>
+    body {
+      background-color: #FFFFFF; 
+      color: #333333; 
+    }
+
+    .btn-confirm, .btn-pay, .btn-print {
+      background-color: #4CAF50; 
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-confirm:hover, .btn-pay:hover, .btn-print:hover {
+      background-color: #388E3C; 
+    }
+
+    .customer-tabs button.active {
+      background-color: #388E3C; 
+    }
+
+    .order-section {
+      background-color: #F1F8E9; 
+      color: black; 
+    }
+
+    table th, table td {
+      border: 1px solid #4CAF50;
+    }
+
+    header {
+      background-color: #66BB6A; 
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+    }
+    .customer-tabs button {
+      background-color: #81C784; 
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .customer-tabs button:hover {
+      background-color: #66BB6A;
+    }
+
+    .customer-tabs button.active {
+      background-color: #388E3C;
+    }
+  </style>
 </head>
 <body>
   <header class="mb-6">
@@ -34,16 +84,12 @@ if (!isset($_SESSION['login'])) {
           }
       }
       
-      // Sort tables numerically
-      sort($tables);
       
-      // Create tabs for each table
+      sort($tables);
       foreach ($tables as $index => $table) {
           $active = $index === 0 ? 'active' : '';
           echo "<button class='{$active}' onclick='switchCustomer(\"{$table}\")'>Meja {$table}</button>";
       }
-      
-      // If no orders yet, show default tabs
       if (empty($tables)) {
           echo "<button class='active' onclick='switchCustomer(\"1\")'>Meja 1</button>";
           echo "<button onclick='switchCustomer(\"2\")'>Meja 2</button>";
@@ -55,7 +101,7 @@ if (!isset($_SESSION['login'])) {
     if (file_exists($file)) {
         $data = json_decode(file_get_contents($file), true);
         
-        // Group orders by table
+        
         $ordersByTable = [];
         foreach ($data as $pesanan) {
             $table = $pesanan['meja'];
@@ -65,10 +111,9 @@ if (!isset($_SESSION['login'])) {
             $ordersByTable[$table][] = $pesanan;
         }
         
-        // Create order sections for each table
         foreach ($ordersByTable as $table => $orders) {
             $display = $table === ($tables[0] ?? 1) ? 'block' : 'none';
-            echo "<div id='meja-{$table}' class='order-section bg-white p-6 rounded shadow mb-6' style='display: {$display}'>";
+            echo "<div id='meja-{$table}' class='order-section p-6 rounded shadow mb-6' style='display: {$display}'>";
             echo "<h3 class='text-lg font-bold mb-4'>Pesanan - Meja {$table}</h3>";
             
             echo "<div class='overflow-x-auto'>";
@@ -128,12 +173,12 @@ if (!isset($_SESSION['login'])) {
         }
     } else {
         // Default view when no orders exist
-        echo "<div id='meja-1' class='order-section bg-white p-6 rounded shadow mb-6'>";
+        echo "<div id='meja-1' class='order-section p-6 rounded shadow mb-6'>";
         echo "<h3 class='text-lg font-bold mb-4'>Pesanan - Meja 1</h3>";
         echo "<p>Belum ada pesanan</p>";
         echo "</div>";
         
-        echo "<div id='meja-2' class='order-section bg-white p-6 rounded shadow mb-6' style='display:none'>";
+        echo "<div id='meja-2' class='order-section p-6 rounded shadow mb-6' style='display:none'>";
         echo "<h3 class='text-lg font-bold mb-4'>Pesanan - Meja 2</h3>";
         echo "<p>Belum ada pesanan</p>";
         echo "</div>";
@@ -174,7 +219,6 @@ if (!isset($_SESSION['login'])) {
       if (activeButton) {
         const meja = activeButton.textContent.replace('Meja ', '');
         alert(`Pesanan untuk Meja ${meja} dikonfirmasi!`);
-        // Here you would typically make an AJAX call to update the status
       }
     }
 
@@ -183,7 +227,6 @@ if (!isset($_SESSION['login'])) {
       if (activeButton) {
         const meja = activeButton.textContent.replace('Meja ', '');
         alert(`Pembayaran untuk Meja ${meja} berhasil diproses!`);
-        // Here you would typically make an AJAX call to update the status
       }
     }
 
@@ -194,7 +237,6 @@ if (!isset($_SESSION['login'])) {
         const printContent = document.getElementById(`print-content-${meja}`);
         
         if (printContent) {
-          // Clone the content to avoid modifying the original
           const printWindow = window.open('', '_blank');
           printWindow.document.write(`
             <html>

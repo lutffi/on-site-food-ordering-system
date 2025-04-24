@@ -16,9 +16,11 @@ try {
     if (!$data || !isset($data['meja']) || !isset($data['pesanan'])) {
         throw new Exception("Data tidak valid");
     }
+    
+    date_default_timezone_set('Asia/Jakarta');
     $data['waktu'] = date("Y-m-d H:i:s");
     $data['status'] = "Menunggu";
-    
+
     $filename = "pesanan.json";
     $existing = [];
     
