@@ -189,10 +189,14 @@
       <button class="btn-confirm" onclick="confirmOrder()">Konfirmasi Pesanan</button>
       <button class="btn-pay" onclick="processPayment()">Proses Pembayaran</button>
       <button class="btn-print" onclick="printReceipt()">Cetak Struk</button>
+      <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded ml-2" onclick="deleteOrder()">Hapus Pesanan</button>
+
     </div>
   </div>
 
   <script>
+  
+
     function switchCustomer(meja) {
       // Hide all order sections
       document.querySelectorAll('.order-section').forEach(el => {
@@ -215,12 +219,34 @@
     }
 
     function confirmOrder() {
-      const activeButton = document.querySelector('.customer-tabs button.active');
-      if (activeButton) {
-        const meja = activeButton.textContent.replace('Meja ', '');
-        alert(`Pesanan untuk Meja ${meja} dikonfirmasi!`);
-      }
+  const activeButton = document.querySelector('.customer-tabs button.active');
+  if (activeButton) {
+    const meja = activeButton.textContent.replace('Meja ', '');
+
+    if (confirm(`Yakin ingin mengkonfirmasi pesanan Meja ${meja}?`)) {
+      fetch('update_status.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `meja=${encodeURIComponent(meja)}`
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          alert(`Pesanan Meja ${meja} berhasil dikonfirmasi!`);
+          location.reload();
+        } else {
+          alert("Gagal konfirmasi: " + (data.message || 'Unknown Error'));
+        }
+      })
+      .catch(err => {
+        alert("Gagal konfirmasi: " + err.message);
+      });
     }
+  }
+}
+
 
     function processPayment() {
       const activeButton = document.querySelector('.customer-tabs button.active');
@@ -266,11 +292,43 @@
         }
       }
     }
-    const firstTab = document.querySelector('.customer-tabs button');
-    if (firstTab) {
-        const firstMeja = firstTab.textContent.replace('Meja ', '');
-        switchCustomer(firstMeja);
+    // fungsi-fungsi kamu yang sudah ada...
+    
+function deleteOrder() {
+  const activeButton = document.querySelector('.customer-tabs button.active');
+  if (activeButton) {
+    const meja = activeButton.textContent.replace('Meja ', '');
+
+    if (confirm(`Yakin ingin menghapus pesanan Meja ${meja}?`)) {
+      fetch('hapus_pesanan.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `meja=${encodeURIComponent(meja)}`
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          alert(`Pesanan Meja ${meja} berhasil dihapus!`);
+          location.reload();
+        } else {
+          alert("Gagal menghapus: " + (data.message || 'Unknown Error'));
+        }
+      })
+      .catch(err => {
+        alert("Gagal menghapus: " + err.message);
+      });
     }
+  }
+}
+
+const firstTab = document.querySelector('.customer-tabs button');
+if (firstTab) {
+    const firstMeja = firstTab.textContent.replace('Meja ', '');
+    switchCustomer(firstMeja);
+}
+
   </script>
 </body>
 </html>

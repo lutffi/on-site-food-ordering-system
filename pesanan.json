@@ -18,44 +18,41 @@
         "status": "Menunggu"
     },
     {
-        "meja": "1",
+        "meja": "7",
         "pesanan": [
             {
-                "nama": "Sate Ayam",
-                "harga": 20000,
+                "nama": "Ayam Bakar",
+                "harga": 22000,
                 "jumlah": 1
             },
             {
-                "nama": "Nasi Goreng",
-                "harga": 20000,
+                "nama": "Ayam Geprek",
+                "harga": 13000,
+                "jumlah": 1
+            },
+            {
+                "nama": "Gudeg Jogja",
+                "harga": 27000,
+                "jumlah": 1
+            },
+            {
+                "nama": "Sambal Dadar Kucai",
+                "harga": 15000,
+                "jumlah": 1
+            },
+            {
+                "nama": "Jus Jambu",
+                "harga": 15000,
                 "jumlah": 1
             },
             {
                 "nama": "Es Teh Manis",
                 "harga": 5000,
-                "jumlah": 2
-            }
-        ],
-        "total": 0,
-        "waktu": "2025-04-23 13:36:51",
-        "status": "Menunggu"
-    },
-    {
-        "meja": "2",
-        "pesanan": [
-            {
-                "nama": "Gado-Gado Surabaya",
-                "harga": 13000,
-                "jumlah": 1
-            },
-            {
-                "nama": "Bebek Bakar",
-                "harga": 25000,
                 "jumlah": 1
             }
         ],
         "total": 0,
-        "waktu": "2025-04-23 13:39:05",
-        "status": "Menunggu"
+        "waktu": "2025-04-27 00:10:37",
+        "status": "dikonfirmasi"
     }
 ]

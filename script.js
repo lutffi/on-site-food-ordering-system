@@ -190,6 +190,36 @@ function toggleCartModal() {
     }, 10);
   }
 }
+function deleteOrder() {
+  const activeButton = document.querySelector('.customer-tabs button.active');
+  if (activeButton) {
+    const meja = activeButton.textContent.replace('Meja ', '');
+
+    if (confirm(`Yakin ingin menghapus pesanan Meja ${meja}?`)) {
+      fetch('hapus_pesanan.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `meja=${encodeURIComponent(meja)}`
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          alert(`Pesanan Meja ${meja} berhasil dihapus!`);
+          location.reload();
+        } else {
+          alert("Gagal menghapus: " + (data.message || 'Unknown Error'));
+        }
+      })
+      .catch(err => {
+        alert("Gagal menghapus: " + err.message);
+      });
+    }
+  }
+}
+
+
 
 
 
